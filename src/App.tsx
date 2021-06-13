@@ -1,6 +1,6 @@
 import robots from "./mock/rotobs.json";
 import Robot from "./components/Robot";
-import styles from "./App.module.css"
+import styles from "./App.module.css";
 
 function App() {
   return (
