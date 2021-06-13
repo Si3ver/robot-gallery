@@ -1,4 +1,5 @@
 import React from "react";
+import { appContext } from "../index";
 import styles from "./Robot.module.css";
 
 interface RobotProps {
@@ -9,11 +10,18 @@ interface RobotProps {
 
 const Robot: React.FC<RobotProps> = ({ id, name, email }) => {
   return (
-    <div className={styles.cardContainer}>
-      <img src={`https://robohash.org/${id}`} alt="robot" />
-      <h2>{name}</h2>
-      <p>{email}</p>
-    </div>
+    <appContext.Consumer>
+      {(value) => {
+        return (
+          <div className={styles.cardContainer}>
+            <img src={`https://robohash.org/${id}`} alt="robot" />
+            <h2>{name}</h2>
+            <p>{email}</p>
+            <p>作者：{value.username}</p>
+          </div>
+        );
+      }}
+    </appContext.Consumer>
   );
 };
 
