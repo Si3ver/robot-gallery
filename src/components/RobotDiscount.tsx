@@ -4,7 +4,12 @@ import { withAddToCart } from "./AddToCart";
 import { RobotProps } from "./Robot";
 import styles from "./Robot.module.css";
 
-const Robot: React.FC<RobotProps> = ({ id, name, email, addToCart }) => {
+const RobotDiscount: React.FC<RobotProps> = ({
+  id,
+  name,
+  email,
+  addToCart,
+}) => {
   const value = useContext(appContext);
 
   return (
@@ -25,4 +30,4 @@ const Robot: React.FC<RobotProps> = ({ id, name, email, addToCart }) => {
   );
 };
 
-export default withAddToCart(Robot);
+export default withAddToCart(RobotDiscount);
