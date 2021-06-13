@@ -5,3 +5,10 @@
 **后端资源**
 
 - [robohash](https://robohash.org/)
+- [jsonplaceholder](https://jsonplaceholder.typicode.com)
+
+**接口**
+
+1. GET /users
+
+获取用户数据
