@@ -6,6 +6,8 @@ name: Node.js CI
 on:
   push:
     branches: [main]
+    paths:
+      - "src/**"
   pull_request:
     branches: [main]
 
@@ -16,7 +18,6 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v2
@@ -28,21 +29,9 @@ jobs:
       - run: npm run build
 
       # 部署到 GitHub Pages
-      - name: Deploy
+      - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
           FOLDER: ./build
-
-      # - name: Deploy to gh-pages
-      #   env:
-      #     # Github 仓库
-      #     GITHUB_REPO: github.com/si3ver/robot-gallery.git
-      #   run: |
-      #     cd ./build && git init && git add .
-      #     git config user.name "si3ver"
-      #     git config user.email "izhouwl@163.com"
-      #     git add .
-      #     git commit -m "GitHub Actions Auto Builder at $(date +'%Y-%m-%d %H:%M:%S')"
-      #     git push --force --quiet "https://${{ secrets.DEPLOY_KEY }}@$GITHUB_REPO" master:master
