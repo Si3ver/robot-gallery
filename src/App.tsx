@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Robot from "./components/Robot";
+import RobotDiscount from "./components/RobotDiscount";
 import ShoppingCart from "./components/ShoppingCart";
 import logo from "./assets/images/logo.svg";
 import styles from "./App.module.css";
@@ -38,9 +39,13 @@ const App: React.FC = (props) => {
         <div>loading...</div>
       ) : (
         <div className={styles.robotList}>
-          {robotGallery.map(({ id, name, email }) => (
-            <Robot key={id} id={id} name={name} email={email} />
-          ))}
+          {robotGallery.map(({ id, name, email }) =>
+            id & 1 ? (
+              <Robot key={id} id={id} name={name} email={email} />
+            ) : (
+              <RobotDiscount key={id} id={id} name={name} email={email} />
+            )
+          )}
         </div>
       )}
     </div>
