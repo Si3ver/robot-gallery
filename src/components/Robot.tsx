@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { appContext } from "../index";
+import { appContext } from "../AppState";
 import styles from "./Robot.module.css";
 
 interface RobotProps {
