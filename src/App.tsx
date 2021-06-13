@@ -9,7 +9,7 @@ function App() {
     <div className={styles.app}>
       <div className={styles.appHeader}>
         <img className={styles.appLogo} src={logo} alt="logo" />
-        <h1>老铁，来个机器人🤖️不</h1>
+        <h1>老铁，买个🤖️给小朋友玩不？</h1>
       </div>
       <ShoppingCart />
       <div className={styles.robotList}>
